@@ -1,0 +1,17 @@
+{% extends 'chatbot_app/base.html' %}
+
+{% block content %}
+<div id="chat-container">
+    <h2 class="title">Group Chat App</h2>
+    <div id="chat-messages">
+        {% for message in messages %}
+            <div class="message">{{ message.message }}</div>
+        {% endfor %}
+    </div>
+    <div id="user-input">
+        <input type="text" id="message-input" placeholder="Type your message...">
+        {% csrf_token %}
+        <button id="send-button">Send</button>
+    </div>
+</div>
+{% endblock %}
